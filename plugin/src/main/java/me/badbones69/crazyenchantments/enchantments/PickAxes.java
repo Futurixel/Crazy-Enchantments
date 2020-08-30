@@ -382,6 +382,7 @@ public class PickAxes implements Listener {
             return true;
         }
         switch (material) {
+            case ANCIENT_DEBRIS:
             case COAL_ORE:
             case IRON_ORE:
             case GOLD_ORE:
@@ -405,6 +406,9 @@ public class PickAxes implements Listener {
             dropItem.setMaterial(Material.QUARTZ);
         } else {
             switch (material) {
+                case ANCIENT_DEBRIS:
+                    dropItem.setMaterial(Material.NETHERITE_SCRAP);
+                    break;
                 case COAL_ORE:
                     dropItem.setMaterial(Material.COAL);
                     break;
