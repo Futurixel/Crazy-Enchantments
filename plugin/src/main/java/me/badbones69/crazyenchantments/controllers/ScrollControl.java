@@ -87,10 +87,6 @@ public class ScrollControl implements Listener {
                     player.sendMessage(Messages.NEED_TO_UNSTACK_ITEM.getMessage());
                     return;
                 }
-                if (Methods.isInventoryFull(player)) {
-                    player.sendMessage(Messages.INVENTORY_FULL.getMessage());
-                    return;
-                }
                 List<CEnchantment> enchantments = ce.getEnchantmentsOnItem(item);
                 if (!enchantments.isEmpty()) {//Item has enchantments
                     e.setCancelled(true);
@@ -100,8 +96,8 @@ public class ScrollControl implements Listener {
                         return;
                     }
                     CEnchantment enchantment = enchantments.get(random.nextInt(enchantments.size()));
-                    player.getInventory().addItem(new CEBook(enchantment, ce.getLevel(item, enchantment), 1).buildBook());
                     e.setCurrentItem(ce.removeEnchantment(item, enchantment));
+                    player.sendMessage("§aTu viens de détruire le ZenEnchant §e"+enchantment.getCustomName());
                     player.updateInventory();
                 }
             }
