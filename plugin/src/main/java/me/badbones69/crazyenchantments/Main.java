@@ -20,6 +20,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -118,6 +119,11 @@ public class Main extends JavaPlugin implements Listener {
         for (Player player : Bukkit.getOnlinePlayers()) {
             ce.unloadCEPlayer(player);
         }
+    }
+
+    @EventHandler
+    public void onPlayerRespawnEvent(PlayerRespawnEvent e){
+        Bukkit.getScheduler().runTaskLater(this, () -> ce.updatePlayerEffects(e.getPlayer()),1);
     }
     
     @EventHandler
