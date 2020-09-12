@@ -248,6 +248,7 @@ public class Tools implements Listener {
             return true;
         }
         switch (block.getType()) {
+            case NETHER_GOLD_ORE:
             case ANCIENT_DEBRIS:
             case COAL_ORE:
             case IRON_ORE:
