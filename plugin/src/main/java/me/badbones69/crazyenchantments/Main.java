@@ -68,7 +68,7 @@ public class Main extends JavaPlugin implements Listener {
         pm.registerEvents(new SignControl(), this);
         pm.registerEvents(new DustControl(), this);
         pm.registerEvents(new Tinkerer(), this);
-        pm.registerEvents(new AuraListener(), this);
+        //pm.registerEvents(new AuraListener(), this);
         pm.registerEvents(new ScrollControl(), this);
         pm.registerEvents(new BlackSmith(), this);
         pm.registerEvents(new ArmorListener(), this);
