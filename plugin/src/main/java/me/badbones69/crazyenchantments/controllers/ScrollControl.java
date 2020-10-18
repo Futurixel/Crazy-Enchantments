@@ -103,17 +103,24 @@ public class ScrollControl implements Listener {
             }
         }
     }
+
+    private ItemStack cacheScroll;
     
     @EventHandler
     public void onClick(PlayerInteractEvent e) {
         Player player = e.getPlayer();
         ItemStack scroll = Methods.getItemInHand(player);
+        if(cacheScroll==null){
+            cacheScroll = Scrolls.BLACK_SCROLL.getScroll();
+        }
         if (scroll != null) {
-            if (scroll.isSimilar(Scrolls.BLACK_SCROLL.getScroll())) {
-                e.setCancelled(true);
-                player.sendMessage(Messages.RIGHT_CLICK_BLACK_SCROLL.getMessage());
-            } else if (scroll.isSimilar(Scrolls.WHITE_SCROLL.getScroll()) || scroll.isSimilar(Scrolls.TRANSMOG_SCROLL.getScroll())) {
-                e.setCancelled(true);
+            if(scroll.getType() == cacheScroll.getType()) {
+                if (scroll.isSimilar(cacheScroll)) {
+                    e.setCancelled(true);
+                    player.sendMessage(Messages.RIGHT_CLICK_BLACK_SCROLL.getMessage());
+                } else if (scroll.isSimilar(Scrolls.WHITE_SCROLL.getScroll()) || scroll.isSimilar(Scrolls.TRANSMOG_SCROLL.getScroll())) {
+                    e.setCancelled(true);
+                }
             }
         }
     }

@@ -72,8 +72,8 @@ public class Main extends JavaPlugin implements Listener {
         pm.registerEvents(new ScrollControl(), this);
         pm.registerEvents(new BlackSmith(), this);
         pm.registerEvents(new ArmorListener(), this);
-        pm.registerEvents(new ProtectionCrystal(), this);
-        pm.registerEvents(new Scrambler(), this);
+        //pm.registerEvents(new ProtectionCrystal(), this);
+        //pm.registerEvents(new Scrambler(), this);
         pm.registerEvents(new CommandChecker(), this);
         pm.registerEvents(new FireworkDamage(), this);
         //==========================================================================\\
